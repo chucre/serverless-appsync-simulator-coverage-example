@@ -1,0 +1,15 @@
+#if($context.args.first == $context.args.second)
+  #set($result = "equals")
+#elseif($context.args.second == "wrong value string")
+  #set($result = "wrong value")
+#else
+  #set($result = "neither wrong or equals")
+#end
+{
+  "version": "2018–05–29",
+  "payload": {
+    "first": $util.toJson($context.args.first),
+    "second": $util.toJson($context.args.second),
+    "result": $util.toJson($result)
+  }
+}

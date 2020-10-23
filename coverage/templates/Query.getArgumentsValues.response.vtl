@@ -1,0 +1,5 @@
+#if($context.result.second == "another value")
+  $util.error("second can't be another value")
+#else
+  $util.toJson($context.result)
+#end

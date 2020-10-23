@@ -1,0 +1,42 @@
+{
+  "name": "serverless-appsync-simulator-coverage-example",
+  "version": "0.0.1",
+  "description": "Example how to use serverless-appsync-simulator-coverage-example ",
+  "main": "index.js",
+  "scripts": {
+    "offline": "sls offline start",
+    "test:just-api": "just-api specs --recursive --parallel 8",
+    "ci": "start-server-and-test offline 20002 test:just-api",
+    "coverage:report": "istanbul report text html cobertura",
+    "test": "npm run ci && npm run coverage:report"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chucre/serverless-appsync-simulator-coverage-example.git"
+  },
+  "keywords": [
+    "serverless",
+    "appsync",
+    "simulator",
+    "example"
+  ],
+  "author": "Fernando Chucre <fernandochucre@gmail.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/chucre/serverless-appsync-simulator-coverage-example/issues"
+  },
+  "homepage": "https://github.com/chucre/serverless-appsync-simulator-coverage-example#readme",
+  "dependencies": {
+    "ip": "^1.1.5",
+    "istanbul": "^0.4.5",
+    "jsonwebtoken": "^8.5.1",
+    "just-api": "^1.2.5",
+    "serverless": "^2.8.0",
+    "serverless-appsync-plugin": "^1.4.0",
+    "serverless-appsync-simulator": "^0.7.0",
+    "serverless-appsync-simulator-coverage": "0.0.3",
+    "serverless-offline": "^6.8.0",
+    "start-server-and-test": "^1.11.5",
+    "uuid": "^8.3.1"
+  }
+}

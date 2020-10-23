@@ -1,0 +1,13 @@
+schema {
+  query: Query
+}
+
+type Query {
+  getArgumentsValues(first: String!, second: String): ArgumentsValuesResult
+}
+
+type ArgumentsValuesResult {
+  first: String!,
+  second: String,
+  result: String!
+}

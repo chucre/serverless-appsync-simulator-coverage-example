@@ -1,0 +1,46 @@
+meta:
+  name: GraphQL tests
+configuration:
+  scheme: http
+  port: 20002
+  custom_configuration:
+    run_type: module
+    module:
+      module_path: specs/modules/custom_configuration.js
+      function_name: handle
+specs:
+  - name: Get Patient
+    before_test:
+      run_type: module
+      module:
+        module_path: specs/modules/user.js
+        function_name: handle
+    request:
+      method: post
+      path: /graphql
+      headers:
+        - name: content-type
+          value: application/json
+      payload:
+        body:
+          type: json
+          content:
+            query: >
+              {
+                getArgumentsValues(first:"someValue", second:"someValue") {
+                  first
+                  second
+                  result
+                }
+              }
+            variables: null
+            operationName: null
+    response:
+      status_code: 200
+      json_data:
+        - path: $.data.getArgumentsValues.first
+          value: someValue
+        - path: $.data.getArgumentsValues.second
+          value: someValue
+        - path: $.data.getArgumentsValues.result
+          value: equals
